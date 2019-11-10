@@ -1,1 +1,1 @@
-HYPOTHESIS : not(x3),x4,
+not(x3), x4

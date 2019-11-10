@@ -1,5 +1,5 @@
 import numpy as np
-
+import codecs
 
 class Operand:
     def __init__(self, val, not_operand=False):
@@ -28,7 +28,7 @@ class Hypothesis:
         value = True
         for x, index in enumerate(values):
             for op in self.operands:
-                if op.val == index+1:
+                if op.val == index + 1:
                     t = op.value(x)
                     value &= t
         return value
@@ -41,26 +41,27 @@ class Hypothesis:
         self.add(name, False)
 
     def remove_negatives(self, values):
-
         for index, x in enumerate(values):
             operands = self.operands
             for op_index, op in enumerate(self.operands):
-                if op.val == index+1:
+                if op.val == index + 1:
                     t = op.value(x)
                     if t == 0:
                         del operands[op_index]
         self.operands = operands
 
     def print_to_file(self, file):
-        f = open(file, "w")
+        f = codecs.open(file, "w", "utf-8")
         f.write(self.__repr__())
         f.close()
 
     def __repr__(self):
-        string = 'HYPOTHESIS : '
+        string = u''
         for literal in self.operands:
-            string += literal.__repr__() + ','
-        return string
+            string += literal.__repr__() + u', '
+        if len(self.operands) == 0:
+            string += '\u2205  '
+        return string[:-2]
 
 
 class ConsistencyAlgorithm:
@@ -79,7 +80,8 @@ class ConsistencyAlgorithm:
 
     def create_negative_hypothesis(self):
         h = Hypothesis()
-        for i in range(1, len(self.data)+2):
+        print(h)
+        for i in range(1, len(self.data) + 2):
             h.add_positive_negative(i)
         return h
 
