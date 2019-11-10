@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77b4e282-b0f3-460e-933f-52ba8fa949d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boolean conjunction predictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/boolean conjunction predictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +18,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boolean conjunction predictor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="406">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/PycharmProjects/ConsistencyAlgorithm/Lib/site-packages/numpy/lib/npyio.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="1145" selection-start-line="1145" selection-end-line="1145" />
             </state>
           </provider>
         </entry>
@@ -37,9 +49,11 @@
     <findStrings>
       <find>remove</find>
       <find>nega</find>
-      <find>print</find>
       <find>remove_neg</find>
       <find>HYPOTHESIS</find>
+      <find>print</find>
+      <find>\u</find>
+      <find>\U</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,10 +191,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/ConsistencyAlgorithm/Lib/site-packages/numpy/lib/npyio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1145" selection-start-line="1145" selection-end-line="1145" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/boolean conjunction predictor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="406">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

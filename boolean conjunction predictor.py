@@ -12,7 +12,7 @@ class Operand:
         if self.notOp is False:
             return 'x' + self.name
         else:
-            return 'not(x' + self.name + ')'
+            return '\u00ACx' + self.name
 
     def value(self, val):
         if val != 0:
@@ -42,14 +42,15 @@ class Hypothesis:
         self.add(name, False)
 
     def remove_negatives(self, values):
+        indices = []
         for index, x in enumerate(values):
-            operands = self.operands
             for op_index, op in enumerate(self.operands):
                 if op.val == index + 1:
                     t = op.value(x)
                     if t == 0:
-                        del operands[op_index]
-        self.operands = operands
+                        indices.append(op_index)
+        for index in indices[::-1]:
+            del self.operands[index]
 
     def print_to_file(self, file):
         f = codecs.open(file, "w", "utf-8")
@@ -59,14 +60,20 @@ class Hypothesis:
     def __repr__(self):
         string = u''
         for literal in self.operands:
-            string += literal.__repr__() + u', '
+            string += literal.__repr__() + u' \u2227 '
         if len(self.operands) == 0:
             string += '\u2205  '
         return string[:-2]
 
 
 class ConsistencyAlgorithm:
-
+    # initialize algorithm instance with a file
+    # the file should contain a list bigger than 1 of dataset
+    # each line contains the values of the inputs x1, x2, x3, x4.... last value is the result value
+    # e.g   0 1 0 1 1 1
+    #       1 0 1 0 0 1
+    #       0 0 1 0 1 0
+    # output should return the conjunction which fits the dataset
     def __init__(self, file, file_out):
         self.data = []
         self.read_file(file)
@@ -81,8 +88,9 @@ class ConsistencyAlgorithm:
 
     def create_negative_hypothesis(self):
         h = Hypothesis()
-        for i in range(1, len(self.data) + 2):
-            h.add_positive_negative(i)
+        if len(self.data) != 0:
+            for i in range(1, len(self.data[0][0]) + 1):
+                h.add_positive_negative(i)
         return h
 
     def run(self):
