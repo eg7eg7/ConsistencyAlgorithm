@@ -2,9 +2,9 @@ import numpy as np
 
 
 class Operand:
-    def __init__(self, name, not_operand=False):
-        self.val = name
-        self.name = str(name)
+    def __init__(self, val, not_operand=False):
+        self.val = val
+        self.name = str(val)
         self.notOp = not_operand
 
     def __repr__(self):
@@ -15,15 +15,9 @@ class Operand:
 
     def value(self, val):
         if val != 0:
-            if self.notOp:
-                return False
-            else:
-                return True
+            return False if self.notOp else True
         else:
-            if self.notOp:
-                return True
-            else:
-                return False
+            return True if self.notOp else False
 
 
 class Hypothesis:
@@ -88,8 +82,6 @@ class ConsistencyAlgorithm:
             value = h.value(x[0])
             if x[1] == 1 and value == 0:
                 h.remove_negatives(x[0])
-            if value == 1:
-                pass
         print(h)
 
 
