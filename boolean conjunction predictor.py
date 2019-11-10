@@ -41,6 +41,7 @@ class Hypothesis:
         self.add(name, False)
 
     def remove_negatives(self, values):
+
         for index, x in enumerate(values):
             operands = self.operands
             for op_index, op in enumerate(self.operands):
@@ -72,7 +73,7 @@ class ConsistencyAlgorithm:
 
     def create_negative_hypothesis(self):
         h = Hypothesis()
-        for i in range(1, len(self.data)+1):
+        for i in range(1, len(self.data)+2):
             h.add_positive_negative(i)
         return h
 
