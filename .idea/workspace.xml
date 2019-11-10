@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="77b4e282-b0f3-460e-933f-52ba8fa949d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/boolean conjunction predictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/boolean conjunction predictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boolean conjunction predictor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="203">
+              <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -35,6 +36,7 @@
       <find>remove</find>
       <find>nega</find>
       <find>print</find>
+      <find>remove_neg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,10 +180,17 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-35578722/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3848">
+          <caret line="810" lean-forward="true" selection-start-line="810" selection-end-line="810" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/boolean conjunction predictor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="203">
+          <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
         </state>
       </provider>
     </entry>

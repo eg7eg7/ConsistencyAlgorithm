@@ -51,6 +51,11 @@ class Hypothesis:
                         del operands[op_index]
         self.operands = operands
 
+    def print_to_file(self, file):
+        f = open(file, "w")
+        f.write(self.__repr__())
+        f.close()
+
     def __repr__(self):
         string = 'HYPOTHESIS : '
         for literal in self.operands:
@@ -60,9 +65,10 @@ class Hypothesis:
 
 class ConsistencyAlgorithm:
 
-    def __init__(self, file):
+    def __init__(self, file, file_out):
         self.data = []
         self.read_file(file)
+        self.file_out = file_out
 
     def read_file(self, file):
         training_examples = np.loadtxt(file)
@@ -84,9 +90,11 @@ class ConsistencyAlgorithm:
             if x[1] == 1 and value == 0:
                 h.remove_negatives(x[0])
         print(h)
+        h.print_to_file(self.file_out)
 
 
 if __name__ == "__main__":
     filename = "data.txt"
-    alg = ConsistencyAlgorithm(filename)
+    file_output = "output.txt"
+    alg = ConsistencyAlgorithm(filename, file_output)
     alg.run()
