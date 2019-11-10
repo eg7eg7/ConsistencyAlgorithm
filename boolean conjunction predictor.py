@@ -1,6 +1,7 @@
 import numpy as np
 import codecs
 
+
 class Operand:
     def __init__(self, val, not_operand=False):
         self.val = val
@@ -80,7 +81,6 @@ class ConsistencyAlgorithm:
 
     def create_negative_hypothesis(self):
         h = Hypothesis()
-        print(h)
         for i in range(1, len(self.data) + 2):
             h.add_positive_negative(i)
         return h
