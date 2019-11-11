@@ -12,7 +12,7 @@ class Operand:
         if self.notOp is False:
             return 'x' + self.name
         else:
-            return '\u00ACx' + self.name
+            return 'not(x' + self.name + ')'
 
     def value(self, val):
         if val != 0:
@@ -60,7 +60,7 @@ class Hypothesis:
     def __repr__(self):
         string = u''
         for literal in self.operands:
-            string += literal.__repr__() + u' \u2227 '
+            string += literal.__repr__() + u', '
         if len(self.operands) == 0:
             string += '\u2205  '
         return string[:-2]
@@ -74,8 +74,10 @@ class ConsistencyAlgorithm:
     #       1 0 1 0 0 1
     #       0 0 1 0 1 0
     # output should return the conjunction which fits the dataset
+
     def __init__(self, file, file_out):
-        self.data = []
+        self.X = []  # X matrix
+        self.Y = []  # Y vector
         self.read_file(file)
         self.file_out = file_out
 
@@ -84,21 +86,22 @@ class ConsistencyAlgorithm:
         for line in training_examples:
             x = line[:-1]
             y = line[-1]
-            self.data.append([x, y])
+            self.X.append(x)
+            self.Y.append(y)
 
     def create_negative_hypothesis(self):
         h = Hypothesis()
-        if len(self.data) != 0:
-            for i in range(1, len(self.data[0][0]) + 1):
+        if len(self.X) != 0:
+            for i in range(1, len(self.X[0]) + 1):
                 h.add_positive_negative(i)
         return h
 
     def run(self):
         h = self.create_negative_hypothesis()
-        for x in self.data:
-            value = h.value(x[0])
-            if x[1] == 1 and value == 0:
-                h.remove_negatives(x[0])
+        for x, y in zip(self.X, self.Y):
+            value = h.value(x)
+            if y == 1 and value == 0:
+                h.remove_negatives(x)
         print(h)
         h.print_to_file(self.file_out)
 
@@ -106,5 +109,5 @@ class ConsistencyAlgorithm:
 if __name__ == "__main__":
     filename = "data.txt"
     file_output = "output.txt"
-    alg = ConsistencyAlgorithm(filename, file_output)
-    alg.run()
+    algorithm = ConsistencyAlgorithm(filename, file_output)
+    algorithm.run()
